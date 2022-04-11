@@ -4,7 +4,7 @@
 #
 Name     : pypi-bash_kernel
 Version  : 0.7.2
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/96/8f/869587d23c29bf74dc52a9bd5c80170762adfc78ecb5108ae8b32bb48f82/bash_kernel-0.7.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/96/8f/869587d23c29bf74dc52a9bd5c80170762adfc78ecb5108ae8b32bb48f82/bash_kernel-0.7.2.tar.gz
 Summary  : A bash kernel for Jupyter
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641603834
+export SOURCE_DATE_EPOCH=1649718909
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
