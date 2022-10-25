@@ -4,7 +4,7 @@
 #
 Name     : pypi-bash_kernel
 Version  : 0.8.0
-Release  : 13
+Release  : 14
 URL      : https://files.pythonhosted.org/packages/d9/2b/0f98098108aa7fa2c18d245e380d15b585e65a8c0f07b2fc11e1d1fe3b7f/bash_kernel-0.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d9/2b/0f98098108aa7fa2c18d245e380d15b585e65a8c0f07b2fc11e1d1fe3b7f/bash_kernel-0.8.0.tar.gz
 Summary  : A bash kernel for Jupyter
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1661192267
+export SOURCE_DATE_EPOCH=1666722468
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -77,8 +77,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -90,7 +90,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-bash_kernel
-cp %{_builddir}/bash_kernel-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-bash_kernel/76c7e710d472be20ce886472767e77a7d52692b8
+cp %{_builddir}/bash_kernel-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-bash_kernel/76c7e710d472be20ce886472767e77a7d52692b8 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
