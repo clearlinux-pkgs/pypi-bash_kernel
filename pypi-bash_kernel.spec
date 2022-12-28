@@ -4,7 +4,7 @@
 #
 Name     : pypi-bash_kernel
 Version  : 0.9.0
-Release  : 15
+Release  : 16
 URL      : https://files.pythonhosted.org/packages/33/0e/942ac1f1717afcaca6430978a8ccb83037c2c72ece40d6f76b1db9310043/bash_kernel-0.9.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/33/0e/942ac1f1717afcaca6430978a8ccb83037c2c72ece40d6f76b1db9310043/bash_kernel-0.9.0.tar.gz
 Summary  : A bash kernel for Jupyter
@@ -17,6 +17,9 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pypi(bash_kernel)
 BuildRequires : pypi(flit_core)
 BuildRequires : pypi(ipykernel)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ... image:: https://mybinder.org/badge_logo.svg
@@ -64,15 +67,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671473302
+export SOURCE_DATE_EPOCH=1672259150
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
