@@ -4,7 +4,7 @@
 #
 Name     : pypi-bash_kernel
 Version  : 0.9.0
-Release  : 16
+Release  : 17
 URL      : https://files.pythonhosted.org/packages/33/0e/942ac1f1717afcaca6430978a8ccb83037c2c72ece40d6f76b1db9310043/bash_kernel-0.9.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/33/0e/942ac1f1717afcaca6430978a8ccb83037c2c72ece40d6f76b1db9310043/bash_kernel-0.9.0.tar.gz
 Summary  : A bash kernel for Jupyter
